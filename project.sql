@@ -1,31 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 05, 2022 at 07:08 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `project`
---
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `class`
---
 
 CREATE TABLE `class` (
   `Class_ID` int(11) NOT NULL,
@@ -37,9 +15,8 @@ CREATE TABLE `class` (
   `Term` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `class`
---
 
 INSERT INTO `class` (`Class_ID`, `Language`, `Teacher`, `Start_Date`, `Finish_Date`, `Number_sessions`, `Term`) VALUES
 (1001, 'Persian', 201, '2020-06-11', '2020-09-17', 20, 2001),
@@ -49,11 +26,9 @@ INSERT INTO `class` (`Class_ID`, `Language`, `Teacher`, `Start_Date`, `Finish_Da
 (1007, 'Persian', 207, '2022-07-13', '2022-07-29', 2, 2002),
 (1009, 'Russian', 205, '2022-08-11', '2022-11-13', 11, 2021);
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `class_days`
---
 
 CREATE TABLE `class_days` (
   `ID` int(4) NOT NULL,
@@ -63,9 +38,8 @@ CREATE TABLE `class_days` (
   `Time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `class_days`
---
 
 INSERT INTO `class_days` (`ID`, `Class_ID`, `Language`, `Days`, `Time`) VALUES
 (1, 1001, 'Persian', 'Saturday', '14:20:00'),
@@ -76,11 +50,9 @@ INSERT INTO `class_days` (`ID`, `Class_ID`, `Language`, `Days`, `Time`) VALUES
 (6, 1004, 'Arabic', 'Thursday', '20:00:00'),
 (7, 1009, 'Russian', 'Sunday', '15:25:00');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `class_student`
---
 
 CREATE TABLE `class_student` (
   `ID` int(4) NOT NULL,
@@ -90,9 +62,8 @@ CREATE TABLE `class_student` (
   `Term` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `class_student`
---
 
 INSERT INTO `class_student` (`ID`, `Class_ID`, `Student_ID`, `Grade`, `Term`) VALUES
 (1, 1001, 123, 15, 2001),
@@ -103,11 +74,9 @@ INSERT INTO `class_student` (`ID`, `Class_ID`, `Student_ID`, `Grade`, `Term`) VA
 (6, 1007, 129, NULL, 2002),
 (7, 1007, 128, NULL, 2002);
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `class_teacher`
---
 
 CREATE TABLE `class_teacher` (
   `Class_ID` int(5) NOT NULL,
@@ -115,9 +84,8 @@ CREATE TABLE `class_teacher` (
   `Term` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `class_teacher`
---
 
 INSERT INTO `class_teacher` (`Class_ID`, `Teacher_ID`, `Term`) VALUES
 (1001, 201, 2001),
@@ -127,11 +95,9 @@ INSERT INTO `class_teacher` (`Class_ID`, `Teacher_ID`, `Term`) VALUES
 (1007, 207, 2002),
 (1009, 205, 2021);
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `persons`
---
 
 CREATE TABLE `persons` (
   `ID` int(5) NOT NULL,
@@ -143,9 +109,8 @@ CREATE TABLE `persons` (
   `Address` text COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `persons`
---
 
 INSERT INTO `persons` (`ID`, `FName`, `LName`, `National_ID`, `Sex`, `Phone_Number`, `Address`) VALUES
 (13, 'Reza', 'Rezaei', 881234353, 'man', '09175654325', 'Tehran ...'),
@@ -161,11 +126,9 @@ INSERT INTO `persons` (`ID`, `FName`, `LName`, `National_ID`, `Sex`, `Phone_Numb
 (204, 'Amin', 'Amini', 460347812, 'man', '09228883454', 'Zanjan ...'),
 (205, 'Ahmad', 'Mosavi', 446789432, 'man', '09165438749', 'Tehran ...');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `responsible`
---
 
 CREATE TABLE `responsible` (
   `Responsible_ID` int(5) NOT NULL,
@@ -173,18 +136,16 @@ CREATE TABLE `responsible` (
   `Works_hours` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `responsible`
---
 
 INSERT INTO `responsible` (`Responsible_ID`, `Responsibility`, `Works_hours`) VALUES
 (13, 'Responsible for registration', 8);
 
--- --------------------------------------------------------
 
---
+
+
 -- Table structure for table `roll_call_student`
---
 
 CREATE TABLE `roll_call_student` (
   `ID` int(4) NOT NULL,
@@ -194,9 +155,8 @@ CREATE TABLE `roll_call_student` (
   `Attendance` varchar(7) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `roll_call_student`
---
 
 INSERT INTO `roll_call_student` (`ID`, `Class_ID`, `Student_ID`, `Date`, `Attendance`) VALUES
 (1, 1001, 123, '2022-07-06', 'Present'),
@@ -207,11 +167,9 @@ INSERT INTO `roll_call_student` (`ID`, `Class_ID`, `Student_ID`, `Date`, `Attend
 (6, 1009, 128, '2022-08-22', 'Present'),
 (8, 1008, 130, '2022-03-04', 'Present');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `roll_call_teacher`
---
 
 CREATE TABLE `roll_call_teacher` (
   `ID` int(4) NOT NULL,
@@ -222,9 +180,8 @@ CREATE TABLE `roll_call_teacher` (
   `Attendance` varchar(7) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `roll_call_teacher`
---
 
 INSERT INTO `roll_call_teacher` (`ID`, `Class_ID`, `Language`, `Teacher_ID`, `Date`, `Attendance`) VALUES
 (1, 1002, 'English', 202, '2022-07-22', 'Present'),
@@ -233,11 +190,9 @@ INSERT INTO `roll_call_teacher` (`ID`, `Class_ID`, `Language`, `Teacher_ID`, `Da
 (4, 1004, 'Arabic', 204, '2022-07-21', 'Present'),
 (5, 1009, 'Russian', 205, '2022-05-20', 'Absent');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `student`
---
 
 CREATE TABLE `student` (
   `ID` int(4) NOT NULL,
@@ -247,9 +202,8 @@ CREATE TABLE `student` (
   `Start_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `student`
---
 
 INSERT INTO `student` (`ID`, `Student_ID`, `Learn_Language`, `Passed_Term`, `Start_Date`) VALUES
 (1, 123, 'Persion', 4, '2021-07-06'),
@@ -259,11 +213,9 @@ INSERT INTO `student` (`ID`, `Student_ID`, `Learn_Language`, `Passed_Term`, `Sta
 (5, 127, 'Arabic', 3, '2022-04-12'),
 (6, 128, 'Russian', 1, '2022-07-04');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `teacher`
---
 
 CREATE TABLE `teacher` (
   `ID` int(5) NOT NULL,
@@ -271,9 +223,8 @@ CREATE TABLE `teacher` (
   `Finishwork_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `teacher`
---
 
 INSERT INTO `teacher` (`ID`, `Startwork_Date`, `Finishwork_Date`) VALUES
 (201, '2021-10-07', '2021-11-05'),
@@ -282,11 +233,9 @@ INSERT INTO `teacher` (`ID`, `Startwork_Date`, `Finishwork_Date`) VALUES
 (204, '2022-08-26', '2022-09-15'),
 (205, '2021-05-07', '2022-07-11');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `teacher_languages`
---
 
 CREATE TABLE `teacher_languages` (
   `ID` int(4) NOT NULL,
@@ -295,9 +244,8 @@ CREATE TABLE `teacher_languages` (
   `Certificate` varchar(50) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
+
 -- Dumping data for table `teacher_languages`
---
 
 INSERT INTO `teacher_languages` (`ID`, `Teacher_ID`, `Languages`, `Certificate`) VALUES
 (1, 201, 'Persion', 'Doctor'),
@@ -306,117 +254,109 @@ INSERT INTO `teacher_languages` (`ID`, `Teacher_ID`, `Languages`, `Certificate`)
 (4, 204, 'Arabic', 'Doctor'),
 (5, 205, 'Russian', 'Master');
 
---
--- Indexes for dumped tables
---
 
---
+
 -- Indexes for table `class`
---
+
 ALTER TABLE `class`
   ADD PRIMARY KEY (`Class_ID`);
 
---
+
 -- Indexes for table `class_days`
---
+
 ALTER TABLE `class_days`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `class_student`
---
+
 ALTER TABLE `class_student`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `class_teacher`
---
+
 ALTER TABLE `class_teacher`
   ADD PRIMARY KEY (`Class_ID`);
 
---
+
 -- Indexes for table `persons`
---
+
 ALTER TABLE `persons`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `responsible`
---
+
 ALTER TABLE `responsible`
   ADD PRIMARY KEY (`Responsible_ID`);
 
---
+
 -- Indexes for table `roll_call_student`
---
+
 ALTER TABLE `roll_call_student`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `roll_call_teacher`
---
+
 ALTER TABLE `roll_call_teacher`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `student`
---
+
 ALTER TABLE `student`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `teacher`
---
+
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`ID`);
 
---
+
 -- Indexes for table `teacher_languages`
---
+
 ALTER TABLE `teacher_languages`
   ADD PRIMARY KEY (`ID`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
+
 -- AUTO_INCREMENT for table `class_days`
---
+
 ALTER TABLE `class_days`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
+
 -- AUTO_INCREMENT for table `class_student`
---
+
 ALTER TABLE `class_student`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
+
 -- AUTO_INCREMENT for table `roll_call_student`
---
+
 ALTER TABLE `roll_call_student`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
+
 -- AUTO_INCREMENT for table `roll_call_teacher`
---
+
 ALTER TABLE `roll_call_teacher`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
+
 -- AUTO_INCREMENT for table `student`
---
+
 ALTER TABLE `student`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
---
+
 -- AUTO_INCREMENT for table `teacher_languages`
---
+
 ALTER TABLE `teacher_languages`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
